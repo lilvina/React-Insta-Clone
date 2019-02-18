@@ -1,3 +1,10 @@
 import React from 'react';
+//import Comment from './Comment';
 
-export default CommentSection
+const CommentSection = () => {
+  return (
+    <div>this is a div</div>
+  )
+}
+
+export default CommentSection;
