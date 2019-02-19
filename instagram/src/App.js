@@ -17,11 +17,9 @@ class App extends Component {
     return (
       <div className="App">
         <header className="header">
-          <p>instalogo</p>
-          <p>instagram</p>
+        
           <SearchBar />
-          <p>heart</p>
-          <p>person</p>
+
         </header>
         {this.state.posts.map(post => (
           <PostContainer key={post.imageUrl} posts={post} />

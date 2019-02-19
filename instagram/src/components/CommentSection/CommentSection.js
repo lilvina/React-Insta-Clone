@@ -4,13 +4,9 @@ import Comment from './Comment';
 const CommentSection = props => {
   return (
     <div className="section-comment">
-      {props.comments.map(comment => {
-        return (
-          <div className="section">
-            <p>{comment.username} {comment.text}</p>
-          </div>
-        )
-      })}
+      { props.comment.comments.map((comment) =>
+        ( <Comment comment={comment}/>
+      ))} 
     </div>
   )
 }
