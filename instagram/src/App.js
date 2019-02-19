@@ -10,19 +10,40 @@ class App extends Component {
     super()
 
     this.state = {
-      posts: dummyData
+      posts: []
     }
   }
+
+  componentDidMount() {
+    this.setState({
+      posts: dummyData
+    })
+  }
+
+  addNewComment = (comment, index) => {
+    let post = [...this.state.posts]
+    const pushObj = {
+
+    }
+    post[index].comments.push(  {
+        username: "you",
+        text: comment
+      })
+      this.setState({
+        posts: post
+      })
+  }
+
   render() {
     return (
       <div className="App">
         <header className="header">
-        
+
           <SearchBar />
 
         </header>
-        {this.state.posts.map(post => (
-          <PostContainer key={post.imageUrl} posts={post} />
+        {this.state.posts.map((post, index) => (
+          <PostContainer key={post.imageUrl} posts={post} indexProps={index} container={this.addNewComment}/>
 
         ))}
       </div>
