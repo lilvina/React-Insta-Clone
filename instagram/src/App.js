@@ -22,9 +22,9 @@ class App extends Component {
 
   addNewComment = (comment, index) => {
     let post = [...this.state.posts]
-    const pushObj = {
-
-    }
+    // const pushObj = {
+    //
+    // }
     post[index].comments.push(  {
         username: "you",
         text: comment
@@ -32,6 +32,14 @@ class App extends Component {
       this.setState({
         posts: post
       })
+  }
+
+  addLike = i => {
+    let post = [...this.state.posts]
+    let like = Object.create(this.state.like)
+    post[i].like += 1
+
+    this.setState({ post, like })
   }
 
   render() {
@@ -43,7 +51,7 @@ class App extends Component {
 
         </header>
         {this.state.posts.map((post, index) => (
-          <PostContainer key={post.imageUrl} posts={post} indexProps={index} container={this.addNewComment}/>
+          <PostContainer key={post.imageUrl} posts={post} indexProps={index} container={this.addNewComment} like={this.addLike} />
 
         ))}
       </div>

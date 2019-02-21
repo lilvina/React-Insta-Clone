@@ -18,9 +18,9 @@ const PostContainer = (props) => {
         <img src={props.posts.imageUrl} alt="{posts.username}'s' pic" />
         <div className="comment">
         <CommentSection comment={props.posts} />
-        <div>{props.posts.likes} likes</div>
+        <div><strong>{props.posts.likes} likes</strong></div>
         <form onSubmit={containerPost}>
-          <input type="text" />
+          <input type="text" placeholder="comment.." />
         </form>
       </div>
       </div>
