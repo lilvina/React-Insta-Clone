@@ -1,14 +1,17 @@
 import React from 'react';
 import './SearchBar.css';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+  const searchHandle = (e) => {
+    props.handleSearch(e.target.value)
+  }
   return (
     <div className="search-bar">
       <div className="instagram-logo">
         <img src="https://i.imgur.com/RzOn2Qz.png" alt="logo"/>
       </div>
       <form className="search">
-        <input type="text" placeholder="search.."/>
+        <input type="text" placeholder="search.." onChange={searchHandle} value={props.searchData} />
       </form>
       <div className="icons">
         <i className="far fa-compass" />

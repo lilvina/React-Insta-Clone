@@ -9,7 +9,8 @@
 }
 
 .image-post {
-  height: auto;
+  height: 100%;
+  margin: auto;
   width: 300px;
 }
 

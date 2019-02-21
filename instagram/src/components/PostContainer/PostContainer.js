@@ -11,6 +11,7 @@ const PostContainer = (props) => {
     let comment = e.target.firstChild.value
     props.container(comment, props.indexProps)
   }
+
   return (
     <div key={props.posts.timestamp} className="post-container">
       <div className="bar">
@@ -22,7 +23,7 @@ const PostContainer = (props) => {
         <CommentSection comment={props.posts} />
         <div><strong>{props.posts.likes} likes</strong></div>
         <form onSubmit={containerPost}>
-          <i className="far fa-heart" />
+          <i className="far fa-heart" onClick={() => props.addLike(props.indexProps)} />
           <input type="text" placeholder="comment.." />
           <i className="fas fa-ellipsis-h" />
         </form>

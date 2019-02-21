@@ -10,7 +10,8 @@ class App extends Component {
     super()
 
     this.state = {
-      posts: []
+      posts: [],
+      searchData: ''
     }
   }
 
@@ -36,22 +37,37 @@ class App extends Component {
 
   addLike = i => {
     let post = [...this.state.posts]
-    let like = Object.create(this.state.like)
-    post[i].like += 1
+    post[i].likes += 1
 
-    this.setState({ post, like })
+    this.setState({ posts: post })
   }
 
+  handleSearch = current => {
+    this.setState({
+      searchData: current
+    })
+  }
+
+
   render() {
+    console.log(this.state.searchData)
     return (
       <div className="App">
         <header className="header">
 
-          <SearchBar />
+
+          <SearchBar handleSearch={this.handleSearch} searchData={this.state.searchData}/>
 
         </header>
-        {this.state.posts.map((post, index) => (
-          <PostContainer key={post.imageUrl} posts={post} indexProps={index} container={this.addNewComment} like={this.addLike} />
+        {this.state.posts.filter(post => {
+          return post.username.includes(this.state.searchData)
+        }).map((post, index) => (
+          <PostContainer
+          key={post.imageUrl}
+          posts={post}
+          indexProps={index}
+          container={this.addNewComment}
+          addLike={this.addLike} />
 
         ))}
       </div>
