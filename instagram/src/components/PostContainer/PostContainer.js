@@ -22,7 +22,9 @@ const PostContainer = (props) => {
         <CommentSection comment={props.posts} />
         <div><strong>{props.posts.likes} likes</strong></div>
         <form onSubmit={containerPost}>
+          <i className="far fa-heart" />
           <input type="text" placeholder="comment.." />
+          <i className="fas fa-ellipsis-h" />
         </form>
       </div>
     </div>
