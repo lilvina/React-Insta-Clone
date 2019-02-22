@@ -1,6 +1,7 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
-import './PostContainer.css';
+//import './PostContainer.css';
+import { ContainerPosts, CommentDiv, ImgDiv } from './postStyles.js';
 import PropTypes from 'prop-types';
 
 const PostContainer = (props) => {
@@ -13,22 +14,26 @@ const PostContainer = (props) => {
   }
 
   return (
+    <ContainerPosts>
     <div key={props.posts.timestamp} className="post-container">
-      <div className="bar">
+      <ImgDiv>
         <img className="username-img" src={props.posts.thumbnailUrl} alt={props.posts.username} />
         <p>{props.posts.username}</p>
-      </div>
+      </ImgDiv>
       <img className="image-post" src={props.posts.imageUrl} alt="{posts.username}'s' pic" />
       <div className="comment">
         <CommentSection comment={props.posts} />
+        <CommentDiv>
         <div><strong>{props.posts.likes} likes</strong></div>
         <form onSubmit={containerPost}>
           <i className="far fa-heart" onClick={() => props.addLike(props.indexProps)} />
           <input type="text" placeholder="comment.." />
           <i className="fas fa-ellipsis-h" />
         </form>
+        </CommentDiv>
       </div>
     </div>
+    </ContainerPosts>
   )
 }
 

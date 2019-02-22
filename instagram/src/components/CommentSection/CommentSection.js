@@ -6,9 +6,10 @@ const CommentSection = props => {
     <div className="section-comment">
       { props.comment.comments.map((comment) =>
         ( <Comment comment={comment}/>
-      ))} 
+      ))}
     </div>
   )
 }
+
 
 export default CommentSection;
