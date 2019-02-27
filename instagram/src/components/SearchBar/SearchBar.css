@@ -1,0 +1,22 @@
+.search-bar {
+  width: 100%;
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search {
+  text-align: center;
+  height: 25px;
+  background-color: #fafafa;
+}
+
+.search-bar .icons {
+  display: flex;
+  width: 100%;
+  font-size: 23px;
+  justify-content: space-between;
+  max-width: 150px;
+}
